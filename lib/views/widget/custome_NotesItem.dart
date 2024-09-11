@@ -7,14 +7,15 @@ class CustomeNotesitem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:const EdgeInsets.only(
+      margin: EdgeInsets.only(bottom: 6),
+      padding: const EdgeInsets.only(
         top: 24,
         bottom: 24,
         left: 12,
       ),
       width: double.infinity,
       decoration: BoxDecoration(
-        color:const Color(0xffFFCD7A),
+        color: const Color(0xffFFCD7A),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -29,8 +30,8 @@ class CustomeNotesitem extends StatelessWidget {
                   color: color,
                 ),
               ),
-              subtitle:const Padding(
-                padding:  EdgeInsets.symmetric(vertical: 16),
+              subtitle: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16),
                 child: Text(
                   'biuld your career with mohamed dff',
                   style: TextStyle(
@@ -47,7 +48,7 @@ class CustomeNotesitem extends StatelessWidget {
                   size: 35,
                 ),
               )),
-        const  Padding(
+          const Padding(
             padding: EdgeInsets.only(right: 24),
             child: Text(
               'may21.2024',
