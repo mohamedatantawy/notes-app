@@ -7,10 +7,10 @@ class Listviewnotes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       itemCount: 10,
       itemBuilder: (context, index) {
-        return CustomeNotesitem();
+        return const CustomeNotesitem();
       },
     );
   }
