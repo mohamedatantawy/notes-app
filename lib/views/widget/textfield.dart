@@ -8,18 +8,28 @@ class textfield extends StatelessWidget {
     this.maxline = null,
     required this.hint,
     this.hi = 70,
+    this.onsaved,
   });
   final int? maxline;
   final String hint;
   final bool ex;
   final double hi;
+  final void Function(String?)? onsaved;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: hi,
       child: Padding(
         padding: const EdgeInsets.all(8),
-        child: TextField(
+        child: TextFormField(
+          onSaved: onsaved,
+          validator: (value) {
+            if (value?.isEmpty ?? true) {
+              return 'failed massage';
+            } else {
+              return 'failed massages';
+            }
+          },
           maxLines: maxline,
           expands: ex,
           keyboardType: TextInputType.multiline,
