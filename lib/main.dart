@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:myproject/constant.dart';
+import 'package:myproject/models/notes_Model.dart';
 import 'package:myproject/views/EidotNotesView.dart';
 import 'package:myproject/views/homeView.dart';
 
-void main() async{
+void main() async {
   await Hive.initFlutter();
-   await Hive.openBox(knotesbox);
+  await Hive.openBox(knotesbox);
+  Hive.registerAdapter(NotesModelAdapter());
   runApp(const NotesApp());
 }
 
@@ -21,12 +23,11 @@ class NotesApp extends StatelessWidget {
         brightness: Brightness.dark,
         fontFamily: 'Poppins',
       ),
-    
       routes: {
         Homeview.id: (context) => const Homeview(),
         Eidotnotesview.id: (context) => const Eidotnotesview(),
       },
-      initialRoute:  Homeview.id,
+      initialRoute: Homeview.id,
     );
   }
 }
