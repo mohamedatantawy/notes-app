@@ -27,7 +27,7 @@ class textfield extends StatelessWidget {
             if (value?.isEmpty ?? true) {
               return 'failed massage';
             } else {
-              return 'failed massages';
+              return null;
             }
           },
           maxLines: maxline,

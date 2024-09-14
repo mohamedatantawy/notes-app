@@ -64,6 +64,7 @@ class _customeFormState extends State<customeForm> {
                 formkey.currentState!.save();
               } else {
                 autovalidateMode = AutovalidateMode.always;
+                setState(() {});
               }
             },
             name: 'Add',
