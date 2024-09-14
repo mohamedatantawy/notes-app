@@ -7,7 +7,7 @@ class textfield extends StatelessWidget {
     this.ex = false,
     this.maxline = null,
     required this.hint,
-    this.hi=70,
+    this.hi = 70,
   });
   final int? maxline;
   final String hint;
@@ -23,16 +23,16 @@ class textfield extends StatelessWidget {
           maxLines: maxline,
           expands: ex,
           keyboardType: TextInputType.multiline,
-          cursorColor: Kprimarycolor,
+          cursorColor: kprimarycolor,
           decoration: InputDecoration(
             hintText: hint,
-            hintStyle:const TextStyle(
-              color: Kprimarycolor,
+            hintStyle: const TextStyle(
+              color: kprimarycolor,
               fontSize: 18,
             ),
             border: buildborder(),
             enabledBorder: buildborder(),
-            focusedBorder: buildborder(Kprimarycolor),
+            focusedBorder: buildborder(kprimarycolor),
           ),
         ),
       ),

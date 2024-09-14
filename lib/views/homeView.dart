@@ -11,7 +11,7 @@ class Homeview extends StatelessWidget {
     return Scaffold(
       body: const NotesViewBody(),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Kprimarycolor,
+        backgroundColor: kprimarycolor,
         foregroundColor: Colors.black,
         shape: const CircleBorder(),
         onPressed: () {

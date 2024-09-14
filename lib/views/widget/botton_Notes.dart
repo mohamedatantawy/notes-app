@@ -7,14 +7,14 @@ class BottonNotes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:  EdgeInsetsDirectional.symmetric(horizontal: 12),
+      margin: EdgeInsetsDirectional.symmetric(horizontal: 12),
       width: MediaQuery.of(context).size.width,
       height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: Kprimarycolor,
+        color: kprimarycolor,
       ),
-      child:  Center(
+      child: Center(
           child: Text(
         name,
         style: const TextStyle(
