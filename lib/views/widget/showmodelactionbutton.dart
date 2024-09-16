@@ -10,7 +10,8 @@ class showamodelctionbutton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return BlocProvider(
+      create: (context) =>NotesCubit(),
       child: BlocConsumer<NotesCubit, NotesStatus>(
         listener: (context, state) {
           if (state is AddNotesfailure) {
@@ -23,7 +24,7 @@ class showamodelctionbutton extends StatelessWidget {
         builder: (context, state) {
           return ModalProgressHUD(
               inAsyncCall: (state is AddNotesloading) ? true : false,
-              child: const customeForm());
+              child: const SingleChildScrollView(child: customeForm()));
         },
       ),
     );

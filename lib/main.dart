@@ -10,9 +10,10 @@ import 'package:myproject/views/homeView.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox(knotesbox);
+    Hive.registerAdapter(NotesModelAdapter());
+
+  await Hive.openBox<NotesModel>(knotesbox);
   Bloc.observer = SimpleBlocObserver();
-  Hive.registerAdapter(NotesModelAdapter());
   runApp(const NotesApp());
 }
 
@@ -21,24 +22,17 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => NotesCubit(),
-        )
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          fontFamily: 'Poppins',
-        ),
-        routes: {
-          Homeview.id: (context) => const Homeview(),
-          Eidotnotesview.id: (context) => const Eidotnotesview(),
-        },
-        initialRoute: Homeview.id,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: 'Poppins',
       ),
+      routes: {
+        Homeview.id: (context) => const Homeview(),
+        Eidotnotesview.id: (context) => const Eidotnotesview(),
+      },
+      initialRoute: Homeview.id,
     );
   }
 }
