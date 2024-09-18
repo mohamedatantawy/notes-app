@@ -28,11 +28,8 @@ class NotesApp extends StatelessWidget {
         brightness: Brightness.dark,
         fontFamily: 'Poppins',
       ),
-      routes: {
-        Homeview.id: (context) => const Homeview(),
-        Eidotnotesview.id: (context) => const Eidotnotesview(),
-      },
-      initialRoute: Homeview.id,
+     
+      home:const Homeview(),
     );
   }
 }
