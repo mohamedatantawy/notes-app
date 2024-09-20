@@ -18,16 +18,18 @@ class showamodelctionbutton extends StatelessWidget {
           print('failed the status');
         }
         if (state is AddNotesSucces) {
-          Navigator.pop(context, MaterialPageRoute(builder: (context) {
-            return Homeview();
-          }));
+          Navigator.pop(context);
         }
       }, builder: (context, state) {
         return AbsorbPointer(
-          absorbing: state is AddNotesloading?true:false,
+          absorbing: state is AddNotesloading ? true : false,
           child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: SingleChildScrollView(child: customeForm()),
+            
+            padding: EdgeInsets.only(left: 16,right: 16,
+            bottom:MediaQuery.of(context).viewInsets.bottom,),
+            child:const SingleChildScrollView(
+              
+              child: customeForm()),
           ),
         );
       }),

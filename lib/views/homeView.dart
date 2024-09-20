@@ -19,6 +19,7 @@ class Homeview extends StatelessWidget {
           
          
             showModalBottomSheet(
+              isScrollControlled: true,
                 context: context,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
