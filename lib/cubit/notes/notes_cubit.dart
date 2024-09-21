@@ -6,16 +6,12 @@ import 'package:myproject/models/notes_Model.dart';
 
 import '../add_note_cubit/notes_status.dart';
 
-class NotesCubit extends Cubit<NotesStatusa> {
-  NotesCubit() : super(NotesInitiala());
-  addnotes(NotesModel note) async {
-    emit(Notesloading());
-    try {
-      var notesbox = Hive.box<NotesModel>(knotesbox);
-      
-      emit(NotesSucces( notesbox.values.toList()));
-    } catch (e) {
-      emit(Notesfailure(e.toString()));
-    }
+class NotesCubita extends Cubit<NotesStatusa> {
+  NotesCubita() : super(NotesInitiala());
+
+  List<NotesModel>? notes;
+ fatchidnote() {
+    var notesbox = Hive.box<NotesModel>(knotesbox);
+    notes = notesbox.values.toList();
   }
 }

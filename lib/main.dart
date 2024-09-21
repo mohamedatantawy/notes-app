@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:myproject/constant.dart';
 import 'package:myproject/cubit/add_note_cubit/notes_cubit.dart';
+import 'package:myproject/cubit/notes/notes_cubit.dart';
 import 'package:myproject/models/notes_Model.dart';
 import 'package:myproject/simple_bloc_observer.dart';
 import 'package:myproject/views/EidotNotesView.dart';
@@ -23,7 +24,7 @@ class NotesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NotesCubit(),
+      create: (context) => NotesCubita(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

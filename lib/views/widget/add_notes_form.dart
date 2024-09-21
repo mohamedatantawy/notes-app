@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:myproject/cubit/add_note_cubit/notes_cubit.dart';
 import 'package:myproject/cubit/add_note_cubit/notes_status.dart';
 import 'package:myproject/models/notes_Model.dart';
@@ -51,17 +52,19 @@ class _customeFormState extends State<customeForm> {
           const SizedBox(
             height: 90,
           ),
-          BlocBuilder<NotesCubit,NotesStatus>(
-            builder: (context, state) {
+          BlocBuilder<NotesCubit, NotesStatus>(builder: (context, state) {
             return BottonNotes(
-              isloading: state is AddNotesloading?true:false,
+              isloading: state is AddNotesloading ? true : false,
               ontap: () {
                 if (formkey.currentState!.validate()) {
                   formkey.currentState!.save();
+
+                  var time = DateTime.now();
+                  var currenttime = DateFormat('dd-mm-yyyy').format(time);
                   var note = NotesModel(
                       title: title!,
                       subtitle: subtitle!,
-                      data: DateTime.now().toString(),
+                      data: currenttime,
                       color: Colors.blue.value);
                   BlocProvider.of<NotesCubit>(context).addnotes(note);
                 } else {

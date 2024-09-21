@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myproject/constant.dart';
+import 'package:myproject/cubit/notes/notes_cubit.dart';
+import 'package:myproject/models/notes_Model.dart';
 import 'package:myproject/views/EidotNotesView.dart';
 
 class CustomeNotesitem extends StatelessWidget {
-  const CustomeNotesitem({super.key});
-
+  const CustomeNotesitem({super.key, required this.note});
+  final NotesModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -14,7 +17,7 @@ class CustomeNotesitem extends StatelessWidget {
         }));
       },
       child: Container(
-        margin: EdgeInsets.only(bottom: 6),
+        margin: const EdgeInsets.only(bottom: 6),
         padding: const EdgeInsets.only(
           top: 24,
           bottom: 24,
@@ -22,7 +25,7 @@ class CustomeNotesitem extends StatelessWidget {
         ),
         width: double.infinity,
         decoration: BoxDecoration(
-          color: const Color(0xffFFCD7A),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -30,36 +33,38 @@ class CustomeNotesitem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ListTile(
-                title: const Text(
-                  'Flutter tips',
-                  style: TextStyle(
+                title: Text(
+                  note.title,
+                  style: const TextStyle(
                     fontSize: 30,
                     color: color,
                   ),
                 ),
-                subtitle: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16),
+                subtitle: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Text(
-                    'biuld your career with mohamed dff',
-                    style: TextStyle(
+                    note.subtitle,
+                    style: const TextStyle(
                       fontSize: 20,
                       color: Colors.black54,
                     ),
                   ),
                 ),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    note.delete();
+                  },
                   icon: const Icon(
                     Icons.delete,
                     color: color,
                     size: 35,
                   ),
                 )),
-            const Padding(
-              padding: EdgeInsets.only(right: 24),
+            Padding(
+              padding: const EdgeInsets.only(right: 24),
               child: Text(
-                'may21.2024',
-                style: TextStyle(
+                note.data.toString(),
+                style: const TextStyle(
                   color: Colors.black54,
                   fontSize: 16,
                 ),
