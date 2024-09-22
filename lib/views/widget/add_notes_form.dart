@@ -67,6 +67,7 @@ class _customeFormState extends State<customeForm> {
                       data: currenttime,
                       color: Colors.blue.value);
                   BlocProvider.of<NotesCubit>(context).addnotes(note);
+                  Navigator.pop(context);
                 } else {
                   autovalidateMode = AutovalidateMode.always;
                   setState(() {});

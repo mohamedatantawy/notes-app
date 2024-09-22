@@ -53,6 +53,7 @@ class CustomeNotesitem extends StatelessWidget {
                 trailing: IconButton(
                   onPressed: () {
                     note.delete();
+                    BlocProvider.of<NotesCubita>(context).fatchidnote();
                   },
                   icon: const Icon(
                     Icons.delete,

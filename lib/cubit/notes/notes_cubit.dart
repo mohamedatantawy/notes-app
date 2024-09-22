@@ -10,8 +10,9 @@ class NotesCubita extends Cubit<NotesStatusa> {
   NotesCubita() : super(NotesInitiala());
 
   List<NotesModel>? notes;
- fatchidnote() {
+  fatchidnote() {
     var notesbox = Hive.box<NotesModel>(knotesbox);
     notes = notesbox.values.toList();
+    emit(NotesSucuss());
   }
 }
