@@ -13,7 +13,7 @@ class CustomeNotesitem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return const Eidotnotesview();
+          return  Eidotnotesview(noteEa: note,);
         }));
       },
       child: Container(

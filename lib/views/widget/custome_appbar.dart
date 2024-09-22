@@ -5,10 +5,12 @@ import 'package:myproject/views/widget/custome_searshIcon.dart';
 class custome_app_bar extends StatelessWidget {
   const custome_app_bar({
     super.key,
-    required this.name, required this.icon,
+    required this.name,
+    required this.icon, required this.ontap,
   });
   final String name;
   final IconData icon;
+  final VoidCallback ontap;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,7 +22,8 @@ class custome_app_bar extends StatelessWidget {
           ),
         ),
         const Spacer(),
-         Custome_searchIcon(
+        Custome_searchIcon(
+          ontap: ontap,
           icon: icon,
         ),
       ],

@@ -13,6 +13,7 @@ class NotesCubita extends Cubit<NotesStatusa> {
   fatchidnote() {
     var notesbox = Hive.box<NotesModel>(knotesbox);
     notes = notesbox.values.toList();
+
     emit(NotesSucuss());
   }
 }

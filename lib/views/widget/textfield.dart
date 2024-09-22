@@ -8,13 +8,14 @@ class textfield extends StatelessWidget {
     this.maxline = null,
     required this.hint,
     this.hi = 70,
-    this.onsaved,
+    this.onsaved, this.onchange,
   });
   final int? maxline;
   final String hint;
   final bool ex;
   final double hi;
   final void Function(String?)? onsaved;
+  final void Function(String)? onchange;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -22,6 +23,7 @@ class textfield extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: TextFormField(
+          onChanged: onchange,
           onSaved: onsaved,
           validator: (value) {
             if (value?.isEmpty ?? true) {
