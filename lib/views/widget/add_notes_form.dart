@@ -56,30 +56,29 @@ class _customeFormState extends State<customeForm> {
             height: 30,
           ),
           BlocBuilder<NotesCubit, NotesStatus>(builder: (context, state) {
-      return BottonNotes(
-        isloading: state is AddNotesloading ? true : false,
-        ontap: () {
-          if (formkey.currentState!.validate()) {
-            formkey.currentState!.save();
+            return BottonNotes(
+              isloading: state is AddNotesloading ? true : false,
+              ontap: () {
+                if (formkey.currentState!.validate()) {
+                  formkey.currentState!.save();
 
-            var time = DateTime.now();
-            var currenttime = DateFormat('dd-mm-yyyy').format(time);
-            var note = NotesModel(
-                title: title!,
-                subtitle: subtitle!,
-                data: currenttime,
-                color: Colors.blue.value);
-            BlocProvider.of<NotesCubit>(context).addnotes(note);
-            Navigator.pop(context);
-          } else {
-            
-            autovalidateMode = AutovalidateMode.always;
-            setState(() {});
-          }
-        },
-        name: 'Add',
-      );
-    }),
+                  var time = DateTime.now();
+                  var currenttime = DateFormat('dd-mm-yyyy').format(time);
+                  var note = NotesModel(
+                      title: title!,
+                      subtitle: subtitle!,
+                      data: currenttime,
+                      color: BlocProvider.of<NotesCubit>(context).color.value );
+                  BlocProvider.of<NotesCubit>(context).addnotes(note);
+                  Navigator.pop(context);
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                  setState(() {});
+                }
+              },
+              name: 'Add',
+            );
+          }),
           const SizedBox(
             height: 40,
           ),
@@ -88,4 +87,3 @@ class _customeFormState extends State<customeForm> {
     );
   }
 }
-
